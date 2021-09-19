@@ -7,7 +7,6 @@ use App\Http\Requests\StoreUpdateCategory;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -17,6 +16,7 @@ class CategoryController extends Controller
     {
         $this->repository = $model;
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -68,7 +68,7 @@ class CategoryController extends Controller
 
         $category->update($request->validated());
 
-        return response()->json(['message' => 'Update Success']);
+        return response()->json(['message' => 'success']);
     }
 
     /**
@@ -83,6 +83,6 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return response()->json([], 205);
+        return response()->json([], 204);
     }
 }
